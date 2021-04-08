@@ -18,7 +18,8 @@ prec_rate(
 
 \item{x}{number of events.}
 
-\item{conf.width}{precision (the full width of the confidence interval).}
+\item{conf.width}{precision (the full width of the confidence interval).
+Should not exceed 5 times \code{r}.}
 
 \item{conf.level}{confidence level.}
 
@@ -50,19 +51,24 @@ If more than one method is specified or the method is miss-specified, the
 exact method.
 }
 \examples{
+# confidence interval width for a rate of 2.5 events per unit and 20 events,
+#  using the score method
 prec_rate(2.5, x = 20, met = "score")
+# number of events to yield a CI width of 2.243 for a rate of 2.5 events per
+#  unit and 20 events, using the score method
 prec_rate(2.5, conf.width = 2.243, met = "score")
+# confidence interval width for a rate of 2.5 events per unit and 20 events,
+#  using the exact method
 prec_rate(2.5, x = 20, met = "exact")
 # vs and wald have the same conf.width, but different lwr and upr
-prec_rate(2.5, x = 20, met = "wald")
 prec_rate(2.5, x = 20, met = "vs")
+prec_rate(2.5, x = 20, met = "wald")
 }
 \references{
 Barker, L. (2002) \emph{A Comparison of Nine Confidence Intervals
 for a Poisson Parameter When the Expected Number of Events is \eqn{\le} 5},
 The American Statistician, 56:2, 85-89,
-\href{https://doi.org/10.1198/000313002317572736}{DOI:
-10.1198/000313002317572736}
+\doi{10.1198/000313002317572736}
 }
 \seealso{
 \code{\link[stats]{poisson.test}}

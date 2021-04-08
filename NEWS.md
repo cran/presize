@@ -1,3 +1,33 @@
+
+presize 0.2.3
+-----------------------------------------
+
+* minor formatting of URLs and references to pass CRAN checks
+
+presize 0.2.2
+-----------------------------------------
+
+* bug fix in shiny app for sens and spec
+* more examples, better described
+* add extra input validation to all functions
+
+presize 0.2.1
+-----------------------------------------
+
+* add reset buttons to shiny app
+* correct copy/paste error on ICC page
+
+presize 0.2.0
+-----------------------------------------
+
+* various changes to ensure that all functions support vectors for different scenarios
+
+
+presize 0.1.4
+-----------------------------------------
+
+* minor changes to readme and shinyapp (corrections of references/typos)
+
 presize 0.1.3
 -----------------------------------------
 

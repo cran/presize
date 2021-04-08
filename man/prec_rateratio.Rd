@@ -40,11 +40,14 @@ groups should also be provided (\code{rate1, rate2}). If only
 \code{rate1}.
 }
 \examples{
+# 20 participants, a rate of 50\%  against a rate of 300\\%
 prec_rateratio(20, .5, 3)
+# sample size required to attain a CI whose upper limit is not more than 3.81 larger
+#  than the lower limit
 prec_rateratio(rate1 = .5, rate2 = 3, prec.level = 3.81)
 }
 \references{
 Rothman KJ, Greenland S (2018). \emph{Planning Study Size Based on
   Precision Rather Than Power}. Epidemiology, 29:599-603.
-  \href{https://doi.org/10.1097/EDE.0000000000000876}{doi:10.1097/EDE.0000000000000876}.
+  \doi{10.1097/EDE.0000000000000876}.
 }

@@ -61,10 +61,16 @@ Caffo 2000).
 method.
 }
 \examples{
+# proportions of 40 and 30\\%, 50 participants, how wide is the CI?
+prec_riskdiff(p1 = .4, p2 = .3, n1 = 50)
+# proportions of 40 and 30\\%, 50 participants, how many participants for a CI 0.2 wide?
+prec_riskdiff(p1 = .4, p2 = .3, conf.width = .2)
+
 # Validate Newcombe (1998)
 prec_riskdiff(p1 = 56/70, p2 = 48/80, n1 = 70, r = 70/80, met = "newcombe")  # Table IIa
 prec_riskdiff(p1 = 10/10, p2 = 0/10, n1 = 10, met = "newcombe")  # Table IIh
 
+# multiple scenarios
 prec_riskdiff(p1 = c(56/70, 9/10, 6/7, 5/56),
               p2 = c(48/80, 3/10, 2/7, 0/29),
               n1 = c(70, 10, 7, 56),
@@ -75,7 +81,7 @@ prec_riskdiff(p1 = c(56/70, 9/10, 6/7, 5/56),
 \references{
 Agresti A (2003) \emph{Categorical Data Analysis}, Second Edition, Wiley
 Series in Probability and Statistics,
-\href{https://doi.org/10.1002/0471249688}{doi:10.1002/0471249688}.
+\doi{10.1002/0471249688}.
 
 Agresti A and Caffo B (2000) \emph{Simple and Effective Confidence Intervals
 for Proportions and Differences of Proportions Result from Adding Two
