@@ -65,9 +65,9 @@ ui <- dashboardPage(skin = "red",
                  br(),
                  br(),
                  br(),
-                 "presize was developed by members of the Swiss Clinical Trials Organisation",
+                 "presize was developed by members of the statistics and methodology platform of the Swiss Clinical Trial Organisation",
                  br(),
-                 img(src = "SCTO_Platform_Logo_2020_RZ_SM.jpg"),
+                 img(src = "SCTO_Platforms.png", width = "95%", style="border: 2px solid #FFFFFF"),
                  width = 12
              )
          ),
@@ -112,7 +112,7 @@ server <- function(input, output, session) {
     output$mean_tab <- renderTable({
         tmp <- mean_fn(input, FALSE)
         tmp1 <- res_vars[res_vars$column %in%
-                     c("mu", "sd", "n", "lwr", "upr", "conf.width", "conf.level"),]
+                     c("mean", "sd", "n", "lwr", "upr", "conf.width", "conf.level"),]
         tmp1[na.omit(match(names(tmp), tmp1$column)),]
     })
     output$mean_resetable_input <- renderUI({
