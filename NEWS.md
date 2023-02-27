@@ -1,128 +1,121 @@
-presize 0.3.3
------------------------------------------
+## presize 0.3.7
 
-* Update URL
+-   BUG-FIX - `perc_meandiff` calculated the degree of freedom incorrectly for equal variance differences (see #106)
+-   addition of Cronbach's alpha to the shiny app
 
-presize 0.3.2
------------------------------------------
+## presize 0.3.6
 
-* minor changes requested by CRAN to update to HTML5 helpfiles.
+-   addition of Cronbach's alpha method
 
-presize 0.3.1
------------------------------------------
+## presize 0.3.5
 
-* addition of vignette
+-   notes in helpfile for `prec_mean` and `prec_meandiff` that the former is suitable for paired mean differences. Comparable changes in the shiny app.
 
-presize 0.3.0
------------------------------------------
+## presize 0.3.4
 
-* BREAKING CHANGE - prec_mean argument changed from 'mu' to 'mean'.
+-   extra note for `prec_sens` and `prec_spec` regarding the `n` in the output
+-   minor clarification for `prec_icc` regarding assumption of no interaction between rater and subject (see #97)
+-   address warnings with prec_prop (see #94)
 
+## presize 0.3.3
 
-presize 0.2.4.9001
------------------------------------------
+-   Update URL
 
-* logo
-* installation via universe
+## presize 0.3.2
 
+-   minor changes requested by CRAN to update to HTML5 helpfiles.
 
-presize 0.2.4.9000
------------------------------------------
+## presize 0.3.1
 
-* addition of citation info
-* update SCTO figures
+-   addition of vignette
 
-presize 0.2.3
------------------------------------------
+## presize 0.3.0
 
-* minor formatting of URLs and references to pass CRAN checks
+-   BREAKING CHANGE - prec_mean argument changed from 'mu' to 'mean'.
 
-presize 0.2.2
------------------------------------------
+## presize 0.2.4.9001
 
-* bug fix in shiny app for sens and spec
-* more examples, better described
-* add extra input validation to all functions
+-   logo
+-   installation via universe
 
-presize 0.2.1
------------------------------------------
+## presize 0.2.4.9000
 
-* add reset buttons to shiny app
-* correct copy/paste error on ICC page
+-   addition of citation info
+-   update SCTO figures
 
-presize 0.2.0
------------------------------------------
+## presize 0.2.3
 
-* various changes to ensure that all functions support vectors for different scenarios
+-   minor formatting of URLs and references to pass CRAN checks
 
+## presize 0.2.2
 
-presize 0.1.4
------------------------------------------
+-   bug fix in shiny app for sens and spec
+-   more examples, better described
+-   add extra input validation to all functions
 
-* minor changes to readme and shinyapp (corrections of references/typos)
+## presize 0.2.1
 
-presize 0.1.3
------------------------------------------
+-   add reset buttons to shiny app
+-   correct copy/paste error on ICC page
 
-* more minor changes for CRAN 
+## presize 0.2.0
 
-presize 0.1.2
------------------------------------------
+-   various changes to ensure that all functions support vectors for different scenarios
 
-* minor changes requested by CRAN 
+## presize 0.1.4
 
-presize 0.1.1
------------------------------------------
+-   minor changes to readme and shinyapp (corrections of references/typos)
 
-* first version for CRAN
-* minor clarifications to options/descriptions
-* minor changes to shiny app
+## presize 0.1.3
 
-presize 0.1.0
------------------------------------------
+-   more minor changes for CRAN
 
-* initial 'final' version
+## presize 0.1.2
 
-presize 0.0.1.9007
------------------------------------------
+-   minor changes requested by CRAN
 
-* addition of wrappers for `prec_lr` (`prec_pos_lr`, `prec_neg_lr`) to simplify positive/negative LRs
+## presize 0.1.1
 
+-   first version for CRAN
+-   minor clarifications to options/descriptions
+-   minor changes to shiny app
 
-presize 0.0.1.9006
------------------------------------------
+## presize 0.1.0
 
-* addition of method for likelihood ratios `prec_lr`
+-   initial 'final' version
 
-presize 0.0.1.9005
------------------------------------------
+## presize 0.0.1.9007
 
-* addition of function for Cohen's kappa
+-   addition of wrappers for `prec_lr` (`prec_pos_lr`, `prec_neg_lr`) to simplify positive/negative LRs
 
-* update shiny app to include kappa
+## presize 0.0.1.9006
 
-* POSSIBLE BREAKING CHANGE: arguments in `prec_rateratio` renamed from `*_exp` and `*_control` to `*1` and `*2` for consistency with other functions
+-   addition of method for likelihood ratios `prec_lr`
 
-presize 0.0.1.9004
------------------------------------------
+## presize 0.0.1.9005
 
-* addition of shiny app and pkgdown
+-   addition of function for Cohen's kappa
 
-presize 0.0.1.9003
------------------------------------------
+-   update shiny app to include kappa
 
-* `prec_sens` and `prec_spec` allow prev and conf.width
+-   POSSIBLE BREAKING CHANGE: arguments in `prec_rateratio` renamed from `*_exp` and `*_control` to `*1` and `*2` for consistency with other functions
 
-* multiple notes allowed in print method
+## presize 0.0.1.9004
 
-* add contributing guidelines
+-   addition of shiny app and pkgdown
 
-* `prec_sens_spec` removed. Confidence intervals and sample sizes are quite different to other methods. A two step approach using `prec_sens` and `prec_spec` is instead recommended
+## presize 0.0.1.9003
 
+-   `prec_sens` and `prec_spec` allow prev and conf.width
 
-presize 0.0.1.9002
------------------------------------------
+-   multiple notes allowed in print method
 
-* addition of various tests
+-   add contributing guidelines
 
-* addition of rate ratio method
+-   `prec_sens_spec` removed. Confidence intervals and sample sizes are quite different to other methods. A two step approach using `prec_sens` and `prec_spec` is instead recommended
+
+## presize 0.0.1.9002
+
+-   addition of various tests
+
+-   addition of rate ratio method

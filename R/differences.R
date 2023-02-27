@@ -13,7 +13,8 @@
 #' Sample size or precision for a mean difference
 #'
 #' \code{prec_meandiff} returns the sample size or the precision for the
-#' provided mean difference and standard deviations.
+#' provided mean difference and standard deviations. For paired differences, use
+#' \code{prec_mean}, as it is equivalent to a simple mean.
 #'
 #' Exactly one of the parameters \code{n} or \code{conf.width} must be passed as NULL,
 #' and that parameter is determined from the other.
@@ -94,7 +95,7 @@ prec_meandiff <- function(delta, sd1, sd2 = sd1, n1 = NULL, r = 1,
 
     md <- quote({
       n2 <- n1 * r
-      s <- sqrt(((n1 - 1) * sd1 ^ 2 + (n2 - 1) * sd2 ^ 2) / (n1 + n2 + 2))
+      s <- sqrt(((n1 - 1) * sd1 ^ 2 + (n2 - 1) * sd2 ^ 2) / (n1 + n2 - 2))
       se <- s * sqrt(1/n1 + 1/n2)
       t <- qt(1 - alpha / 2, n1 + n2 - 2)
       t * se
