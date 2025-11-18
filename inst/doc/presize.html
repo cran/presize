@@ -48,6 +48,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -347,7 +348,7 @@ is to provide functions for such precision based sample size
 calculations. For a given sample size, the functions will return the
 precision (width of the confidence interval), and vice versa.</p>
 <p><code>presize</code> is loaded like any other R Package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(presize)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(presize)</span></code></pre></div>
 <div id="using-presize" class="section level2">
 <h2>Using <code>presize</code></h2>
 <p>Here we present a couple of examples of using <code>presize</code> to
@@ -363,19 +364,19 @@ participants. As such, the question to be answered is how wide is the
 confidence interval going to be under such a scenario?</p>
 <p>We plug the values into the <code>prec_sens</code> (precision of
 sensitivity) function as follows</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(ss <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens   =</span> .<span class="dv">75</span>,  <span class="co"># sensitivity </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">prev   =</span> .<span class="dv">15</span>,  <span class="co"># prevalence</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ntot   =</span> <span class="dv">250</span>,  <span class="co"># sample size</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>))</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.75 0.7270475 38 0.15  250  0.2663919       0.95 0.5938516 0.8602435</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>(ss <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens   =</span> .<span class="dv">75</span>,  <span class="co"># sensitivity </span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>                 <span class="at">prev   =</span> .<span class="dv">15</span>,  <span class="co"># prevalence</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                 <span class="at">ntot   =</span> <span class="dv">250</span>,  <span class="co"># sample size</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>                 <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;   sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; 1 0.75 0.7270475 38 0.15  250  0.2663919       0.95 0.5938516 0.8602435</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
 <p>We see that with 250 participants, the confidence interval would be
 from 59% (<code>lwr</code>) to 86% (<code>upr</code>).</p>
 <p>Note that Wilson’s method of calculating confidence intervals adjusts
@@ -388,28 +389,28 @@ slightly different results.</p>
 <p>For specificity, we use the <code>prec_spec</code> function instead.
 For demonstration purposes, we can also change the method used to
 calculate the CI.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prec_spec</span>(<span class="at">spec   =</span> .<span class="dv">75</span>,  <span class="co"># specificity </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">prev   =</span> .<span class="dv">15</span>,  <span class="co"># prevalence</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">ntot   =</span> <span class="dv">250</span>,  <span class="co"># sample size</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">method =</span> <span class="st">&quot;exact&quot;</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      precision for a specificity with exact confidence interval. </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   spec specadj   n prev ntot conf.width conf.level       lwr      upr</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.75      NA 213 0.15  250  0.1203922       0.95 0.6862538 0.806646</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: specadj is the adjusted specificity, from which the ci is calculated.</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n is the number of negatives, ntot the full sample.</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">prec_spec</span>(<span class="at">spec   =</span> .<span class="dv">75</span>,  <span class="co"># specificity </span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>          <span class="at">prev   =</span> .<span class="dv">15</span>,  <span class="co"># prevalence</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>          <span class="at">ntot   =</span> <span class="dv">250</span>,  <span class="co"># sample size</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>          <span class="at">method =</span> <span class="st">&quot;exact&quot;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;      precision for a specificity with exact confidence interval. </span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;   spec specadj   n prev ntot conf.width conf.level       lwr      upr</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; 1 0.75      NA 213 0.15  250  0.1203922       0.95 0.6862538 0.806646</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: specadj is the adjusted specificity, from which the ci is calculated.</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;       n is the number of negatives, ntot the full sample.</span></span></code></pre></div>
 <p>Using the other functions in <code>presize</code> is the same. For
 instance the precision of a mean of 60 with an SD of 10 and 40
 observations is calculated as follows.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prec_mean</span>(<span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">n =</span> <span class="dv">40</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      precision for mean </span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   mean sd  n conf.width conf.level      lwr      upr</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   60 10 40    6.39631       0.95 56.80184 63.19816</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">prec_mean</span>(<span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">n =</span> <span class="dv">40</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;      precision for mean </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;   mean sd  n conf.width conf.level      lwr      upr</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 1   60 10 40    6.39631       0.95 56.80184 63.19816</span></span></code></pre></div>
 </div>
 <div id="n-for-a-fixed-precision" class="section level3">
 <h3>N for a fixed precision</h3>
@@ -419,20 +420,20 @@ to achieve a sensitivity of a given amount (e.g. plus-minus 5%). This is
 also possible with <code>presize</code>. Using the same code as above,
 we replace the <code>ntot</code> argument with the
 <code>conf.width</code> argument.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(ss <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens       =</span> .<span class="dv">75</span>,   <span class="co"># sensitivity </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">prev       =</span> .<span class="dv">15</span>,   <span class="co"># prevalence</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">conf.width =</span> .<span class="dv">1</span>,    <span class="co"># CI width</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">method     =</span> <span class="st">&quot;wilson&quot;</span>))</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sample size for a sensitivity with Wilson confidence interval. </span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sens   sensadj        n prev     ntot conf.width conf.level       lwr</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.75 0.7466814 285.5428 0.15 1903.619        0.1       0.95 0.6966814</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         upr</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.7966814</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>(ss <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens       =</span> .<span class="dv">75</span>,   <span class="co"># sensitivity </span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>                 <span class="at">prev       =</span> .<span class="dv">15</span>,   <span class="co"># prevalence</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>                 <span class="at">conf.width =</span> .<span class="dv">1</span>,    <span class="co"># CI width</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>                 <span class="at">method     =</span> <span class="st">&quot;wilson&quot;</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt;      sample size for a sensitivity with Wilson confidence interval. </span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt;   sens   sensadj        n prev     ntot conf.width conf.level       lwr</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; 1 0.75 0.7466814 285.5428 0.15 1903.619        0.1       0.95 0.6966814</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt;         upr</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt; 1 0.7966814</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
 <p>Under this scenario, 1904 participants (of which approximately 286
 would have the condition) will yield a CI width of 0.1 (10%), on
 average.</p>
@@ -448,34 +449,34 @@ preformed if the number of cases rather than the total number and
 prevalence are available. For instance, if we have 50 individuals with
 the condition and we expect a sensitivity of 60%, we can put those
 values in instead.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prec_sens</span>(.<span class="dv">6</span>, <span class="at">n =</span> <span class="dv">50</span>, <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  0.6 0.5928652 50   NA   NA  0.2621017       0.95 0.4618144 0.7239161</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">prec_sens</span>(.<span class="dv">6</span>, <span class="at">n =</span> <span class="dv">50</span>, <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt;   sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; 1  0.6 0.5928652 50   NA   NA  0.2621017       0.95 0.4618144 0.7239161</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
 <p>Sensitivities and specificities are just proportions so
 <code>prec_prop</code> can also be used for this latter example.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prec_prop</span>(.<span class="dv">6</span>, <span class="at">n =</span> <span class="dv">50</span>, <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      precision for a proportion with Wilson confidence interval. </span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     p      padj  n conf.width conf.level       lwr       upr</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0.6 0.5928652 50  0.2621017       0.95 0.4618144 0.7239161</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: padj is the adjusted proportion, from which the ci is calculated.</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">prec_prop</span>(.<span class="dv">6</span>, <span class="at">n =</span> <span class="dv">50</span>, <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt;      precision for a proportion with Wilson confidence interval. </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt;     p      padj  n conf.width conf.level       lwr       upr</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; 1 0.6 0.5928652 50  0.2621017       0.95 0.4618144 0.7239161</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: padj is the adjusted proportion, from which the ci is calculated.</span></span></code></pre></div>
 <p>Using the other functions in <code>presize</code> is the same. For
 instance, the sample size to obtain a CI width of 5 units with a mean of
 60 with an SD of 10 is calculated as follows.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prec_mean</span>(<span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">conf.width =</span> <span class="dv">5</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      sample size for mean </span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   mean sd       n conf.width conf.level  lwr  upr</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   60 10 63.8979          5       0.95 57.5 62.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">prec_mean</span>(<span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>, <span class="at">conf.width =</span> <span class="dv">5</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt;      sample size for mean </span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt;   mean sd       n conf.width conf.level  lwr  upr</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt; 1   60 10 63.8979          5       0.95 57.5 62.5</span></span></code></pre></div>
 </div>
 <div id="multiple-scenarios" class="section level3">
 <h3>Multiple scenarios</h3>
@@ -490,58 +491,58 @@ passed, they should have the same length!). For varying a single
 parameter, scenarios can be created with <code>seq</code> and passed
 that to the appropriate <code>presize</code> functions argument. Here we
 vary sensitivity between 50% and 95% in steps of 5%.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(scenario_data <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens =</span> <span class="fu">seq</span>(.<span class="dv">5</span>, .<span class="dv">95</span>, .<span class="dv">05</span>), </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">prev =</span> .<span class="dv">15</span>, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ntot =</span> <span class="dv">250</span>, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>))</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1  0.50 0.5000000 38 0.15  250  0.3030014       0.95 0.3484993 0.6515007</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2  0.55 0.5454095 38 0.15  250  0.3016224       0.95 0.3945983 0.6962207</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3  0.60 0.5908190 38 0.15  250  0.2974469       0.95 0.4420956 0.7395424</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4  0.65 0.6362285 38 0.15  250  0.2903543       0.95 0.4910514 0.7814056</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5  0.70 0.6816380 38 0.15  250  0.2801231       0.95 0.5415765 0.8216996</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  0.75 0.7270475 38 0.15  250  0.2663919       0.95 0.5938516 0.8602435</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7  0.80 0.7724570 38 0.15  250  0.2485815       0.95 0.6481663 0.8967478</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8  0.85 0.8178665 38 0.15  250  0.2257283       0.95 0.7050024 0.9307307</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9  0.90 0.8632761 38 0.15  250  0.1960769       0.95 0.7652376 0.9613145</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 0.95 0.9086856 38 0.15  250  0.1557928       0.95 0.8307891 0.9865820</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>(scenario_data <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens =</span> <span class="fu">seq</span>(.<span class="dv">5</span>, .<span class="dv">95</span>, .<span class="dv">05</span>), </span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>                            <span class="at">prev =</span> .<span class="dv">15</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>                            <span class="at">ntot =</span> <span class="dv">250</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>                            <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="co">#&gt;    sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co">#&gt; 1  0.50 0.5000000 38 0.15  250  0.3030014       0.95 0.3484993 0.6515007</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="co">#&gt; 2  0.55 0.5454095 38 0.15  250  0.3016224       0.95 0.3945983 0.6962207</span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="co">#&gt; 3  0.60 0.5908190 38 0.15  250  0.2974469       0.95 0.4420956 0.7395424</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="co">#&gt; 4  0.65 0.6362285 38 0.15  250  0.2903543       0.95 0.4910514 0.7814056</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a><span class="co">#&gt; 5  0.70 0.6816380 38 0.15  250  0.2801231       0.95 0.5415765 0.8216996</span></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="co">#&gt; 6  0.75 0.7270475 38 0.15  250  0.2663919       0.95 0.5938516 0.8602435</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a><span class="co">#&gt; 7  0.80 0.7724570 38 0.15  250  0.2485815       0.95 0.6481663 0.8967478</span></span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a><span class="co">#&gt; 8  0.85 0.8178665 38 0.15  250  0.2257283       0.95 0.7050024 0.9307307</span></span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a><span class="co">#&gt; 9  0.90 0.8632761 38 0.15  250  0.1960769       0.95 0.7652376 0.9613145</span></span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="co">#&gt; 10 0.95 0.9086856 38 0.15  250  0.1557928       0.95 0.8307891 0.9865820</span></span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
 <p>We can also use <code>expand.grid</code> to pass scenarios varying
 multiple parameters simultaneously. Below we vary sensitivity,
 prevalence and sample size.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>scenarios <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">sens =</span> <span class="fu">seq</span>(.<span class="dv">5</span>, .<span class="dv">95</span>, .<span class="dv">1</span>),</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prev =</span> <span class="fu">seq</span>(.<span class="dv">1</span>, .<span class="dv">2</span>, .<span class="dv">04</span>),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">ntot =</span> <span class="fu">c</span>(<span class="dv">250</span>, <span class="dv">350</span>))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>(scenario_data <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens =</span> scenarios<span class="sc">$</span>sens, </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">prev =</span> scenarios<span class="sc">$</span>prev, </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ntot =</span> scenarios<span class="sc">$</span>ntot, </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>))</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   0.5 0.5000000 25 0.10  250  0.3649551       0.95 0.3175224 0.6824776</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   0.6 0.5866808 25 0.10  250  0.3585724       0.95 0.4073946 0.7659670</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   0.7 0.6733615 25 0.10  250  0.3387033       0.95 0.5040099 0.8427132</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   0.8 0.7600423 25 0.10  250  0.3027037       0.95 0.6086905 0.9113942</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   0.9 0.8467231 25 0.10  250  0.2435219       0.95 0.7249621 0.9684841</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   0.5 0.5000000 35 0.14  250  0.3144853       0.95 0.3427574 0.6572426</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   0.6 0.5901099 35 0.14  250  0.3087656       0.95 0.4357271 0.7444927</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   0.7 0.6802198 35 0.14  250  0.2909327       0.95 0.5347534 0.8256862</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   0.8 0.7703297 35 0.14  250  0.2584917       0.95 0.6410839 0.8995755</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  0.9 0.8604396 35 0.14  250  0.2046081       0.95 0.7581356 0.9627436</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [Output truncated at 10 of 30 rows]</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>scenarios <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">sens =</span> <span class="fu">seq</span>(.<span class="dv">5</span>, .<span class="dv">95</span>, .<span class="dv">1</span>),</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>                         <span class="at">prev =</span> <span class="fu">seq</span>(.<span class="dv">1</span>, .<span class="dv">2</span>, .<span class="dv">04</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>                         <span class="at">ntot =</span> <span class="fu">c</span>(<span class="dv">250</span>, <span class="dv">350</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>(scenario_data <span class="ot">&lt;-</span> <span class="fu">prec_sens</span>(<span class="at">sens =</span> scenarios<span class="sc">$</span>sens, </span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>                            <span class="at">prev =</span> scenarios<span class="sc">$</span>prev, </span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>                            <span class="at">ntot =</span> scenarios<span class="sc">$</span>ntot, </span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>                            <span class="at">method =</span> <span class="st">&quot;wilson&quot;</span>))</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt; estimating n from &#39;ntot&#39; and &#39;prev&#39;</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co">#&gt;      precision for a sensitivity with Wilson confidence interval. </span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">#&gt;    sens   sensadj  n prev ntot conf.width conf.level       lwr       upr</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co">#&gt; 1   0.5 0.5000000 25 0.10  250  0.3649551       0.95 0.3175224 0.6824776</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="co">#&gt; 2   0.6 0.5866808 25 0.10  250  0.3585724       0.95 0.4073946 0.7659670</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="co">#&gt; 3   0.7 0.6733615 25 0.10  250  0.3387033       0.95 0.5040099 0.8427132</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="co">#&gt; 4   0.8 0.7600423 25 0.10  250  0.3027037       0.95 0.6086905 0.9113942</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="co">#&gt; 5   0.9 0.8467231 25 0.10  250  0.2435219       0.95 0.7249621 0.9684841</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="co">#&gt; 6   0.5 0.5000000 35 0.14  250  0.3144853       0.95 0.3427574 0.6572426</span></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="co">#&gt; 7   0.6 0.5901099 35 0.14  250  0.3087656       0.95 0.4357271 0.7444927</span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="co">#&gt; 8   0.7 0.6802198 35 0.14  250  0.2909327       0.95 0.5347534 0.8256862</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#&gt; 9   0.8 0.7703297 35 0.14  250  0.2584917       0.95 0.6410839 0.8995755</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="co">#&gt; 10  0.9 0.8604396 35 0.14  250  0.2046081       0.95 0.7581356 0.9627436</span></span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="co">#&gt;  [Output truncated at 10 of 30 rows]</span></span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a><span class="co">#&gt; </span><span class="al">NOTE</span><span class="co">: sensadj is the adjusted sensitivity, from which the ci is calculated.</span></span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="co">#&gt;       n is the number of positives, ntot the full sample</span></span></code></pre></div>
 <p>From the print method, we see the details of the individual
 scenarios. The default print method for <code>presize</code> objects
 only prints the first 10 rows, but there are in fact 30 rows (there is
@@ -556,79 +557,89 @@ plotting them can be particularly informative. <code>ggplot2</code>, for
 example, is particularly useful for this. Below we show CI width as a
 function of sensitivity, but the other parameters could be chosen
 instead.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>scenario_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(scenario_data)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scenario_df, </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> sens, </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> conf.width, </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>           <span class="co"># convert colour to factor for distinct colours rather than a continuum</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">col =</span> <span class="fu">as.factor</span>(prev), </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">group =</span> prev)) <span class="sc">+</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sensitivity&quot;</span>, <span class="at">y =</span> <span class="st">&quot;CI width&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Prevalence&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(ntot))</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>scenario_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(scenario_data)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="fu">ggplot</span>(scenario_df, </span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> sens, </span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>           <span class="at">y =</span> conf.width, </span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>           <span class="co"># convert colour to factor for distinct colours rather than a continuum</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>           <span class="at">col =</span> <span class="fu">as.factor</span>(prev), </span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>           <span class="at">group =</span> prev)) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Sensitivity&quot;</span>, <span class="at">y =</span> <span class="st">&quot;CI width&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Prevalence&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(ntot))</span></code></pre></div>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
 <p>We could also create a table of the scenarios containing the CIs.
 Below we select only the scenarios with sensitivities above 70% and
 reshape and format the table and use the <code>gt</code> package to
 print a nice table in HTML.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attache Paket: &#39;dplyr&#39;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Die folgenden Objekte sind maskiert von &#39;package:stats&#39;:</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Die folgenden Objekte sind maskiert von &#39;package:base&#39;:</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attache Paket: &#39;magrittr&#39;</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Das folgende Objekt ist maskiert &#39;package:tidyr&#39;:</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     extract</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>scenario_df <span class="sc">%&gt;%</span> </span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create the values needed specifically for the table</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">txt =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%3.1f - %3.1f&quot;</span>, lwr <span class="sc">*</span> <span class="dv">100</span>, upr <span class="sc">*</span> <span class="dv">100</span>),</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Prevalence (%)</span><span class="st">`</span> <span class="ot">=</span> prev <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sensitivity =</span> sens <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">ntot =</span> <span class="fu">sprintf</span>(<span class="st">&quot;N = %1.0f&quot;</span>, ntot)) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select particular scenarios and variables to keep</span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sens <span class="sc">&gt;</span> .<span class="dv">7</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ntot, Sensitivity, <span class="st">`</span><span class="at">Prevalence (%)</span><span class="st">`</span>, txt) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># reshape</span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> Sensitivity, </span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> txt, </span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Prevalence (%)</span><span class="st">`</span>, ntot)) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group by ntot to split the table a little</span></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ntot) <span class="sc">%&gt;%</span></span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create the table</span></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a header</span></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Sensitivity (%)&quot;</span>,</span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cols_align</span>(<span class="st">&quot;center&quot;</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># increase the spacing between cells</span></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="st">&quot;padding-left:12;padding-right:12;&quot;</span>,</span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>()</span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<div id="zxgsbanian" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co">#&gt; Attache Paket: &#39;dplyr&#39;</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co">#&gt; Die folgenden Objekte sind maskiert von &#39;package:stats&#39;:</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="co">#&gt; Die folgenden Objekte sind maskiert von &#39;package:base&#39;:</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="co">#&gt; Attache Paket: &#39;magrittr&#39;</span></span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a><span class="co">#&gt; Das folgende Objekt ist maskiert &#39;package:tidyr&#39;:</span></span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a><span class="co">#&gt;     extract</span></span>
+<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>scenario_df <span class="sc">%&gt;%</span> </span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a>  <span class="co"># create the values needed specifically for the table</span></span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a>    <span class="at">txt =</span> <span class="fu">sprintf</span>(<span class="st">&quot;%3.1f - %3.1f&quot;</span>, lwr <span class="sc">*</span> <span class="dv">100</span>, upr <span class="sc">*</span> <span class="dv">100</span>),</span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a>    <span class="st">`</span><span class="at">Prevalence (%)</span><span class="st">`</span> <span class="ot">=</span> prev <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a>    <span class="at">Sensitivity =</span> sens <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a>    <span class="at">ntot =</span> <span class="fu">sprintf</span>(<span class="st">&quot;N = %1.0f&quot;</span>, ntot)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a>  <span class="co"># select particular scenarios and variables to keep</span></span>
+<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a>  <span class="fu">filter</span>(sens <span class="sc">&gt;</span> .<span class="dv">7</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a>  <span class="fu">select</span>(ntot, Sensitivity, <span class="st">`</span><span class="at">Prevalence (%)</span><span class="st">`</span>, txt) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a>  <span class="co"># reshape</span></span>
+<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a>    <span class="at">names_from =</span> Sensitivity, </span>
+<span id="cb12-32"><a href="#cb12-32" tabindex="-1"></a>    <span class="at">values_from =</span> txt, </span>
+<span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a>    <span class="at">id_cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Prevalence (%)</span><span class="st">`</span>, ntot)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-34"><a href="#cb12-34" tabindex="-1"></a>  <span class="co"># group by ntot to split the table a little</span></span>
+<span id="cb12-35"><a href="#cb12-35" tabindex="-1"></a>  <span class="fu">group_by</span>(ntot) <span class="sc">%&gt;%</span></span>
+<span id="cb12-36"><a href="#cb12-36" tabindex="-1"></a>  <span class="co"># create the table</span></span>
+<span id="cb12-37"><a href="#cb12-37" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb12-38"><a href="#cb12-38" tabindex="-1"></a>  <span class="co"># add a header</span></span>
+<span id="cb12-39"><a href="#cb12-39" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
+<span id="cb12-40"><a href="#cb12-40" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Sensitivity (%)&quot;</span>,</span>
+<span id="cb12-41"><a href="#cb12-41" tabindex="-1"></a>    <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb12-42"><a href="#cb12-42" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-43"><a href="#cb12-43" tabindex="-1"></a>  <span class="fu">cols_align</span>(<span class="st">&quot;center&quot;</span>, <span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-44"><a href="#cb12-44" tabindex="-1"></a>  <span class="co"># increase the spacing between cells</span></span>
+<span id="cb12-45"><a href="#cb12-45" tabindex="-1"></a>  <span class="fu">tab_style</span>(</span>
+<span id="cb12-46"><a href="#cb12-46" tabindex="-1"></a>    <span class="at">style =</span> <span class="st">&quot;padding-left:12;padding-right:12;&quot;</span>,</span>
+<span id="cb12-47"><a href="#cb12-47" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>()</span>
+<span id="cb12-48"><a href="#cb12-48" tabindex="-1"></a>  )</span></code></pre></div>
+<div id="mtpaftoums" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mtpaftoums table {
+font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
-#zxgsbanian .gt_table {
+#mtpaftoums thead, #mtpaftoums tbody, #mtpaftoums tfoot, #mtpaftoums tr, #mtpaftoums td, #mtpaftoums th {
+border-style: none;
+}
+#mtpaftoums p {
+margin: 0;
+padding: 0;
+}
+#mtpaftoums .gt_table {
 display: table;
 border-collapse: collapse;
+line-height: normal;
 margin-left: auto;
 margin-right: auto;
 color: #333333;
@@ -650,18 +661,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#zxgsbanian .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
+#mtpaftoums .gt_caption {
+padding-top: 4px;
+padding-bottom: 4px;
 }
-#zxgsbanian .gt_title {
+#mtpaftoums .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -672,23 +676,34 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#zxgsbanian .gt_subtitle {
+#mtpaftoums .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
-padding-top: 0;
-padding-bottom: 6px;
+padding-top: 3px;
+padding-bottom: 5px;
 padding-left: 5px;
 padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#zxgsbanian .gt_bottom_border {
+#mtpaftoums .gt_heading {
+background-color: #FFFFFF;
+text-align: center;
+border-bottom-color: #FFFFFF;
+border-left-style: none;
+border-left-width: 1px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 1px;
+border-right-color: #D3D3D3;
+}
+#mtpaftoums .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#zxgsbanian .gt_col_headings {
+#mtpaftoums .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -702,7 +717,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#zxgsbanian .gt_col_heading {
+#mtpaftoums .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -721,7 +736,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#zxgsbanian .gt_column_spanner_outer {
+#mtpaftoums .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -732,13 +747,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#zxgsbanian .gt_column_spanner_outer:first-child {
+#mtpaftoums .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#zxgsbanian .gt_column_spanner_outer:last-child {
+#mtpaftoums .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#zxgsbanian .gt_column_spanner {
+#mtpaftoums .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -749,7 +764,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#zxgsbanian .gt_group_heading {
+#mtpaftoums .gt_spanner_row {
+border-bottom-style: hidden;
+}
+#mtpaftoums .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -772,8 +790,9 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 vertical-align: middle;
+text-align: left;
 }
-#zxgsbanian .gt_empty_group_heading {
+#mtpaftoums .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -787,13 +806,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#zxgsbanian .gt_from_md > :first-child {
+#mtpaftoums .gt_from_md > :first-child {
 margin-top: 0;
 }
-#zxgsbanian .gt_from_md > :last-child {
+#mtpaftoums .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#zxgsbanian .gt_row {
+#mtpaftoums .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -811,7 +830,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#zxgsbanian .gt_stub {
+#mtpaftoums .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -823,7 +842,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zxgsbanian .gt_stub_row_group {
+#mtpaftoums .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -836,10 +855,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#zxgsbanian .gt_row_group_first td {
+#mtpaftoums .gt_row_group_first td {
 border-top-width: 2px;
 }
-#zxgsbanian .gt_summary_row {
+#mtpaftoums .gt_row_group_first th {
+border-top-width: 2px;
+}
+#mtpaftoums .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -848,14 +870,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zxgsbanian .gt_first_summary_row {
+#mtpaftoums .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#zxgsbanian .gt_first_summary_row.thick {
+#mtpaftoums .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#zxgsbanian .gt_last_summary_row {
+#mtpaftoums .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -864,7 +886,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#zxgsbanian .gt_grand_summary_row {
+#mtpaftoums .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -873,7 +895,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zxgsbanian .gt_first_grand_summary_row {
+#mtpaftoums .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -882,10 +904,19 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#zxgsbanian .gt_striped {
+#mtpaftoums .gt_last_grand_summary_row_top {
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 5px;
+padding-right: 5px;
+border-bottom-style: double;
+border-bottom-width: 6px;
+border-bottom-color: #D3D3D3;
+}
+#mtpaftoums .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#zxgsbanian .gt_table_body {
+#mtpaftoums .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -893,7 +924,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#zxgsbanian .gt_footnotes {
+#mtpaftoums .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -906,121 +937,126 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#zxgsbanian .gt_footnote {
+#mtpaftoums .gt_footnote {
 margin: 0px;
-font-size: 90%;
-padding-left: 4px;
-padding-right: 4px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#zxgsbanian .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#zxgsbanian .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#zxgsbanian .gt_left {
+#mtpaftoums .gt_sourcenotes {
+color: #333333;
+background-color: #FFFFFF;
+border-bottom-style: none;
+border-bottom-width: 2px;
+border-bottom-color: #D3D3D3;
+border-left-style: none;
+border-left-width: 2px;
+border-left-color: #D3D3D3;
+border-right-style: none;
+border-right-width: 2px;
+border-right-color: #D3D3D3;
+}
+#mtpaftoums .gt_sourcenote {
+font-size: 90%;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 5px;
+padding-right: 5px;
+}
+#mtpaftoums .gt_left {
 text-align: left;
 }
-#zxgsbanian .gt_center {
+#mtpaftoums .gt_center {
 text-align: center;
 }
-#zxgsbanian .gt_right {
+#mtpaftoums .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#zxgsbanian .gt_font_normal {
+#mtpaftoums .gt_font_normal {
 font-weight: normal;
 }
-#zxgsbanian .gt_font_bold {
+#mtpaftoums .gt_font_bold {
 font-weight: bold;
 }
-#zxgsbanian .gt_font_italic {
+#mtpaftoums .gt_font_italic {
 font-style: italic;
 }
-#zxgsbanian .gt_super {
+#mtpaftoums .gt_super {
 font-size: 65%;
 }
-#zxgsbanian .gt_footnote_marks {
-font-style: italic;
-font-weight: normal;
+#mtpaftoums .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
+position: initial;
 }
-#zxgsbanian .gt_asterisk {
+#mtpaftoums .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#zxgsbanian .gt_indent_1 {
+#mtpaftoums .gt_indent_1 {
 text-indent: 5px;
 }
-#zxgsbanian .gt_indent_2 {
+#mtpaftoums .gt_indent_2 {
 text-indent: 10px;
 }
-#zxgsbanian .gt_indent_3 {
+#mtpaftoums .gt_indent_3 {
 text-indent: 15px;
 }
-#zxgsbanian .gt_indent_4 {
+#mtpaftoums .gt_indent_4 {
 text-indent: 20px;
 }
-#zxgsbanian .gt_indent_5 {
+#mtpaftoums .gt_indent_5 {
 text-indent: 25px;
 }
+#mtpaftoums .katex-display {
+display: inline-flex !important;
+margin-bottom: 0.75em !important;
+}
+#mtpaftoums div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+height: 0px !important;
+}
 </style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col">Prevalence (%)</th>
-      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup">
-        <span class="gt_column_spanner">Sensitivity (%)</span>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" scope="col" id="Prevalence-(%)">Prevalence (%)</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="Sensitivity (%)">
+        <div class="gt_column_spanner">Sensitivity (%)</div>
       </th>
     </tr>
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">80</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col">90</th>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="a80">80</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="a90">90</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr class="gt_group_heading_row">
-      <td colspan="3" class="gt_group_heading">N = 250</td>
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="N = 250">N = 250</th>
     </tr>
-    <tr class="gt_row_group_first"><td class="gt_row gt_right" style="padding-left: 12;padding-right: 12;">10</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">60.9 - 91.1</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">72.5 - 96.8</td></tr>
-    <tr><td class="gt_row gt_right" style="padding-left: 12;padding-right: 12;">14</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">64.1 - 90.0</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">75.8 - 96.3</td></tr>
-    <tr><td class="gt_row gt_right" style="padding-left: 12;padding-right: 12;">18</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">66.2 - 89.1</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">77.9 - 95.8</td></tr>
+    <tr class="gt_row_group_first"><td headers="N = 250  Prevalence (%)" class="gt_row gt_right" style="padding-left:12;padding-right:12;">10</td>
+<td headers="N = 250  80" class="gt_row gt_center" style="padding-left:12;padding-right:12;">60.9 - 91.1</td>
+<td headers="N = 250  90" class="gt_row gt_center" style="padding-left:12;padding-right:12;">72.5 - 96.8</td></tr>
+    <tr><td headers="N = 250  Prevalence (%)" class="gt_row gt_right" style="padding-left:12;padding-right:12;">14</td>
+<td headers="N = 250  80" class="gt_row gt_center" style="padding-left:12;padding-right:12;">64.1 - 90.0</td>
+<td headers="N = 250  90" class="gt_row gt_center" style="padding-left:12;padding-right:12;">75.8 - 96.3</td></tr>
+    <tr><td headers="N = 250  Prevalence (%)" class="gt_row gt_right" style="padding-left:12;padding-right:12;">18</td>
+<td headers="N = 250  80" class="gt_row gt_center" style="padding-left:12;padding-right:12;">66.2 - 89.1</td>
+<td headers="N = 250  90" class="gt_row gt_center" style="padding-left:12;padding-right:12;">77.9 - 95.8</td></tr>
     <tr class="gt_group_heading_row">
-      <td colspan="3" class="gt_group_heading">N = 350</td>
+      <th colspan="3" class="gt_group_heading" scope="colgroup" id="N = 350">N = 350</th>
     </tr>
-    <tr class="gt_row_group_first"><td class="gt_row gt_right" style="padding-left: 12;padding-right: 12;">10</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">64.1 - 90.0</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">75.8 - 96.3</td></tr>
-    <tr><td class="gt_row gt_right" style="padding-left: 12;padding-right: 12;">14</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">67.0 - 88.8</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">78.6 - 95.7</td></tr>
-    <tr><td class="gt_row gt_right" style="padding-left: 12;padding-right: 12;">18</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">68.5 - 88.0</td>
-<td class="gt_row gt_center" style="padding-left: 12;padding-right: 12;">80.2 - 95.3</td></tr>
+    <tr class="gt_row_group_first"><td headers="N = 350  Prevalence (%)" class="gt_row gt_right" style="padding-left:12;padding-right:12;">10</td>
+<td headers="N = 350  80" class="gt_row gt_center" style="padding-left:12;padding-right:12;">64.1 - 90.0</td>
+<td headers="N = 350  90" class="gt_row gt_center" style="padding-left:12;padding-right:12;">75.8 - 96.3</td></tr>
+    <tr><td headers="N = 350  Prevalence (%)" class="gt_row gt_right" style="padding-left:12;padding-right:12;">14</td>
+<td headers="N = 350  80" class="gt_row gt_center" style="padding-left:12;padding-right:12;">67.0 - 88.8</td>
+<td headers="N = 350  90" class="gt_row gt_center" style="padding-left:12;padding-right:12;">78.6 - 95.7</td></tr>
+    <tr><td headers="N = 350  Prevalence (%)" class="gt_row gt_right" style="padding-left:12;padding-right:12;">18</td>
+<td headers="N = 350  80" class="gt_row gt_center" style="padding-left:12;padding-right:12;">68.5 - 88.0</td>
+<td headers="N = 350  90" class="gt_row gt_center" style="padding-left:12;padding-right:12;">80.2 - 95.3</td></tr>
   </tbody>
   
   

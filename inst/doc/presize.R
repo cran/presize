@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -54,7 +54,7 @@ scenarios <- expand.grid(sens = seq(.5, .95, .1),
                             ntot = scenarios$ntot, 
                             method = "wilson"))
 
-## ---- fig.width=7-------------------------------------------------------------
+## ----fig.width=7--------------------------------------------------------------
 scenario_df <- as.data.frame(scenario_data)
 
 library(ggplot2)
