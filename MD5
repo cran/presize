@@ -1,6 +1,6 @@
-eb611ca6cf8de2f972581d1550bcd0a4 *DESCRIPTION
+8e74f558215c0e739a573ddcef98376a *DESCRIPTION
 ffa389179199d6b79cea244096c8462c *NAMESPACE
-c2e2ee5cfc05e0cafe89fb02f7561a47 *NEWS.md
+42d641735f8dd6bd3fb8a1309a028301 *NEWS.md
 0dada628fe1e98a0b0f64aa7856e1839 *R/correlation_measures.R
 8e56f7f557e970efaf927d9094bee3ae *R/descriptive_stats.R
 a066ef86389e8d8311cf5cec0e8e8b12 *R/diagnostic.R
@@ -13,7 +13,7 @@ da7bac5323d313dfbcdb38f8fbf613f0 *R/presize-package.R
 d95de6108e7686fbacf6cee217c5e9f4 *inst/CITATION
 a9ae74fd6fcdea2e3879cdf4a8b0d653 *inst/doc/presize.R
 c154457a1ce970a09a2a666bbeba6e17 *inst/doc/presize.Rmd
-39bc8d5f45d7de96870cab3c2dfba17b *inst/doc/presize.html
+13b060b85ef4ede021b213e187855d10 *inst/doc/presize.html
 6a3aa7a0a000dfce5aa37c60480c51e3 *inst/extdata/baplotdata
 62a4bdc2224a7e3ce17cd43c112c0656 *inst/fig/SCTO_Platform_Logo_2020_RZ_SM.jpg
 518997ad47b75267885bc7073cc60b33 *inst/fig/SCTO_Platform_Logo_2020_RZ_SM.png
@@ -63,7 +63,7 @@ e6e54e9fd2061271504ec24d8957b18c *man/prec_meandiff.Rd
 9024de835efd3d03cd7e968b4058d7ce *man/prec_rateratio.Rd
 8dbc96f2928eafcaf70afee40f4a6879 *man/prec_riskdiff.Rd
 3856be3a405850117c3f8307423aea91 *man/prec_riskratio.Rd
-847a180d8ab60ef88eb81c03b0287bd9 *man/presize-package.Rd
+8419c2d148e1a54636a7d2a6b044128b *man/presize-package.Rd
 745cba6e06d8d449812c6e871aade62d *man/sensspec.Rd
 2319ac8a406e4fa0b3307c33335707d1 *tests/presize.R
 5143c72fc804ec2940c97b2c531f4e9c *tests/testthat/test-correlation_measures.R
